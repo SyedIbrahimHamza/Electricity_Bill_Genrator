@@ -15,3 +15,10 @@ for i in range(3):
     units = int(input("Enter units: "))
 
     bill_generator(name, units)
+print(" ELECTRICITY BILLS ")
+
+for customer in bills:
+    print("Name:", customer["name"])
+    print("Units:", customer["units"])
+    print("Bill:", customer["bill"])
+    print("----------------------")

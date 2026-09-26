@@ -22,3 +22,12 @@ for customer in bills:
     print("Units:", customer["units"])
     print("Bill:", customer["bill"])
     print("----------------------")
+def total_revenue():
+    total = 0
+
+    for customer in bills:
+        total += customer["bill"]
+
+    return total
+
+print("Total Revenue:", total_revenue())

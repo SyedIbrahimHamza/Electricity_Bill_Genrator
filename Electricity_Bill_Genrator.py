@@ -42,4 +42,4 @@ def search_customer(name):
 
     print("Customer not found.")
 search_name = input("\nEnter customer name to search: ")
-search_customer(search_name)
+search_customer(search_name) 

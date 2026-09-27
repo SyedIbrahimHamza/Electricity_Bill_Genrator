@@ -31,3 +31,13 @@ def total_revenue():
     return total
 
 print("Total Revenue:", total_revenue())
+def search_customer(name):
+    for customer in bills:
+        if customer["name"].lower() == name.lower():
+            print("\nCustomer Found!")
+            print("Name:", customer["name"])
+            print("Units:", customer["units"])
+            print("Bill:", customer["bill"])
+            return
+
+    print("Customer not found.")

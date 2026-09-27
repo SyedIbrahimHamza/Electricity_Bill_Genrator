@@ -41,3 +41,5 @@ def search_customer(name):
             return
 
     print("Customer not found.")
+search_name = input("\nEnter customer name to search: ")
+search_customer(search_name)

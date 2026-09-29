@@ -42,4 +42,40 @@ def search_customer(name):
 
     print("Customer not found.")
 search_name = input("\nEnter customer name to search: ")
-search_customer(search_name) 
+search_customer(search_name)
+while True:
+    print("\n===== ELECTRICITY BILLING SYSTEM =====")
+    print("1. Add Customer")
+    print("2. Show All Bills")
+    print("3. Search Customer")
+    print("4. Total Revenue")
+    print("5. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        name = input("Enter customer name: ")
+        units = int(input("Enter units consumed: "))
+        bill_generator(name, units)
+
+    elif choice == "2":
+        for customer in bills:
+            print(
+                customer["name"],
+                customer["units"],
+                customer["bill"]
+            )
+
+    elif choice == "3":
+        name = input("Enter customer name: ")
+        search_customer(name)
+
+    elif choice == "4":
+        print("Total Revenue:", total_revenue())
+
+    elif choice == "5":
+        print("Thank you!")
+        break
+
+    else:
+        print("Invalid choice!") 

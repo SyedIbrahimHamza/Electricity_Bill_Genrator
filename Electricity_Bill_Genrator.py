@@ -1,27 +1,27 @@
-bills=[]
-def bill_generator(name,units):
-    if units<=100:
-        bill=units*5
-    elif units<=200:
-        bill=100*5+(units-100)*7
-    elif units<=300:
-        bill=100*5+100*7+(units-200)*10
+bills = []
+
+
+def bill_generator(name, units):
+    if units <= 100:
+        bill = units * 5
+    elif units <= 200:
+        bill = 100 * 5 + (units - 100) * 7
+    elif units <= 300:
+        bill = 100 * 5 + 100 * 7 + (units - 200) * 10
     else:
-        bill=100*5+100*7+100*10+(units-300)*15
-    bills.append((name,bill))
+        bill = 100 * 5 + 100 * 7 + 100 * 10 + (units - 300) * 15
+
+    customer = {
+        "name": name,
+        "units": units,
+        "bill": bill
+    }
+
+    bills.append(customer)
+
     return bill
-for i in range(3):
-    name = input("Enter customer name: ")
-    units = int(input("Enter units: "))
 
-    bill_generator(name, units)
-print(" ELECTRICITY BILLS ")
 
-for customer in bills:
-    print("Name:", customer["name"])
-    print("Units:", customer["units"])
-    print("Bill:", customer["bill"])
-    print("----------------------")
 def total_revenue():
     total = 0
 
@@ -30,7 +30,7 @@ def total_revenue():
 
     return total
 
-print("Total Revenue:", total_revenue())
+
 def search_customer(name):
     for customer in bills:
         if customer["name"].lower() == name.lower():
@@ -41,8 +41,8 @@ def search_customer(name):
             return
 
     print("Customer not found.")
-search_name = input("\nEnter customer name to search: ")
-search_customer(search_name)
+
+
 while True:
     print("\n===== ELECTRICITY BILLING SYSTEM =====")
     print("1. Add Customer")
@@ -56,15 +56,22 @@ while True:
     if choice == "1":
         name = input("Enter customer name: ")
         units = int(input("Enter units consumed: "))
+
         bill_generator(name, units)
 
+        print("Customer added successfully!")
+
     elif choice == "2":
-        for customer in bills:
-            print(
-                customer["name"],
-                customer["units"],
-                customer["bill"]
-            )
+        print("\n===== ELECTRICITY BILLS =====")
+
+        if len(bills) == 0:
+            print("No customers found.")
+        else:
+            for customer in bills:
+                print("Name:", customer["name"])
+                print("Units:", customer["units"])
+                print("Bill:", customer["bill"])
+                print("----------------------")
 
     elif choice == "3":
         name = input("Enter customer name: ")
@@ -78,4 +85,4 @@ while True:
         break
 
     else:
-        print("Invalid choice!") 
+        print("Invalid choice!")
